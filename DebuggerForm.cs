@@ -16,7 +16,7 @@ namespace WindowsFormsApp1
             posLabel.Text = "Cursor position = " + position.X + "X/" + position.Y + "Y";
         }
 
-        public void setLabel1(String value)
+        public void SetLabel1(String value)
         {
             label1.Text = value;
         }

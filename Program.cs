@@ -1,26 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
     static class Program
     {
-        private static DebuggerForm debuggerForm = null;
-        private static Form1 form1 = null;
-        static bool stopRequested = false;
-        static String[] sentences = {
-            "Salut",
-            "Hey !",
-            "Pk tu me fermes ?",
-            "Mais wsh !",
-            "STOOOP",
-            "Bon je me casse.."
-        };
+        private static DebuggerForm _debuggerForm = null;
+        private static Form1 _form1 = null;
+        static bool _stopRequested = false;
+        // static String[] _sentences = {
+        //     "Salut",
+        //     "Hey !",
+        //     "Pk tu me fermes ?",
+        //     "Mais wsh !",
+        //     "STOOOP",
+        //     "Bon je me casse.."
+        // };
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -28,8 +24,8 @@ namespace WindowsFormsApp1
         static void Main()
         {
 
-            debuggerForm = new DebuggerForm();
-            form1 = new Form1();
+            _debuggerForm = new DebuggerForm();
+            _form1 = new Form1();
 
             Thread backgroundWorker = new Thread(BackgroundWork);
 
@@ -38,11 +34,11 @@ namespace WindowsFormsApp1
             //foreach (String s in sentences)
             //    MessageBox.Show(s, "Info", MessageBoxButtons.OK);
             
-            form1.Show();
+            _form1.Show();
 
-            debuggerForm.ShowDialog();
+            _debuggerForm.ShowDialog();
 
-            stopRequested = true;
+            _stopRequested = true;
             
             backgroundWorker.Join();
 
@@ -51,11 +47,11 @@ namespace WindowsFormsApp1
         private static void BackgroundWork()
         {
             Thread.Sleep(1000);
-            while (!stopRequested)
+            while (!_stopRequested)
             {
-                form1.SetCursorPosition(Cursor.Position);
-                debuggerForm.SetCursorPosition(Cursor.Position);
-                debuggerForm.setLabel1("Form1 pos = " + form1.DesktopLocation.X + "X/" + form1.DesktopLocation.Y + "Y");
+                _form1.SetCursorPosition(Cursor.Position);
+                _debuggerForm.SetCursorPosition(Cursor.Position);
+                _debuggerForm.SetLabel1("Form1 pos = " + _form1.DesktopLocation.X + "X/" + _form1.DesktopLocation.Y + "Y");
                 Thread.Sleep(10);
             }
         }
