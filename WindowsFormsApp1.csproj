@@ -53,6 +53,7 @@
         <Compile Include="DebuggerForm.Designer.cs">
           <DependentUpon>DebuggerForm.cs</DependentUpon>
         </Compile>
+        <Compile Include="EscapeFormComportment.cs" />
         <Compile Include="Form1.cs">
             <SubType>Form</SubType>
         </Compile>
