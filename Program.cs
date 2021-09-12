@@ -9,14 +9,15 @@ namespace WindowsFormsApp1
         private static DebuggerForm _debuggerForm = null;
         private static Form1 _form1 = null;
         static bool _stopRequested = false;
-        // static String[] _sentences = {
-        //     "Salut",
-        //     "Hey !",
-        //     "Pk tu me fermes ?",
-        //     "Mais wsh !",
-        //     "STOOOP",
-        //     "Bon je me casse.."
-        // };
+        static String[] _sentences = {
+            "Salut",
+            "Hey !",
+            "Pk tu me fermes ?",
+            "Mais wsh !",
+            "STOOOP",
+            "Bon ok tiens tu peux m'arrêter.."
+        };
+        
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -31,8 +32,8 @@ namespace WindowsFormsApp1
 
             backgroundWorker.Start();
 
-            //foreach (String s in sentences)
-            //    MessageBox.Show(s, "Info", MessageBoxButtons.OK);
+            foreach (String s in _sentences)
+                MessageBox.Show(s, "Info", MessageBoxButtons.OK);
             
             _form1.Show();
 
